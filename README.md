@@ -1,18 +1,14 @@
-# Desafio Técnico — Seleção de Estágio Dev FullStack
+# GamePrice AI
 
-## 1. Nome da Solução
-
-**GamePrice AI**
-
-## 2. Problema Escolhido
+## Problema Escolhido
 
 A crescente fragmentação de preços de jogos digitais (Steam, Epic Games Store, PlayStation Store, Xbox Store) e físicos, aliada à constante flutuação de valores, dificulta para o consumidor a identificação de promoções genuínas. Muitas vezes, o que parece ser uma oferta vantajosa pode ser apenas uma flutuação normal de mercado ou até mesmo um preço inflacionado. O problema central é a falta de uma ferramenta que analise o contexto do preço de um jogo, em vez de apenas seu valor nominal, para guiar o consumidor a tomar decisões de compra mais informadas.
 
-## 3. Objetivo da Aplicação
+## Objetivo da Aplicação
 
 O objetivo principal do **GamePrice AI** é fornecer uma análise inteligente dos preços de jogos, utilizando o algoritmo de Machine Learning K-means para classificar a atratividade de uma oferta de forma estatística. A aplicação visa capacitar o usuário a discernir entre promoções reais e flutuações comuns de mercado, transformando dados brutos em decisões de compra seguras e econômicas.
 
-## 4. Descrição do Caso de Uso
+## Descrição do Caso de Uso
 
 O **GamePrice AI** atua como um assistente de compras inteligente para jogadores. O fluxo de uso é o seguinte:
 
@@ -22,7 +18,7 @@ O **GamePrice AI** atua como um assistente de compras inteligente para jogadores
 
 Este caso de uso demonstra como a IA transforma dados brutos de preços em *insights* categóricos e acionáveis, permitindo que o usuário tome decisões de compra mais inteligentes.
 
-## 5. Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Front-end
 
@@ -44,7 +40,7 @@ Este caso de uso demonstra como a IA transforma dados brutos de preços em *insi
 
 *   **K-means:** Algoritmo de clusterização não supervisionado, utilizado para agrupar e classificar a atratividade dos preços dos jogos em categorias como "Quente", "Morno" e "Frio". A inicialização `k-means++` é utilizada por padrão no `scikit-learn` para otimizar a escolha dos centroides iniciais e garantir a estabilidade dos clusters. Pertence a categoria de Classificação e Recomendação com IA prevista no edital.
 
-## 6. Arquitetura Geral da Solução
+## Arquitetura Geral da Solução
 
 A arquitetura do **GamePrice AI** é dividida em duas camadas principais: **Front-end** e **Back-end**, que se comunicam através de uma API RESTful. A Inteligência Artificial é um componente central do back-end, responsável pela análise de preços.
 
@@ -80,7 +76,7 @@ Construído em **Python** com **FastAPI**, o back-end é o coração da aplicaç
 *   `app/models/`: Define os esquemas de dados (Pydantic) para validação de entrada e saída da API.
 *   `app/entities/`: Contém classes de domínio puras, representando as entidades de negócio.
 
-## 7. Instruções de Instalação e Execução
+## Instruções de Instalação e Execução
 
 Para configurar e executar o **GamePrice AI**, siga os passos abaixo:
 
@@ -133,7 +129,7 @@ Para configurar e executar o **GamePrice AI**, siga os passos abaixo:
 
 A aplicação também está disponível online via Vercel em: https://game-price-ai.vercel.app/
 
-## 8. Explicação de como a IA foi integrada
+## Explicação de como a IA foi integrada
 
 A Inteligência Artificial, especificamente o algoritmo **K-means**, é o cerne da funcionalidade de análise de preços do **GamePrice AI**. A integração ocorre no back-end, dentro do módulo `app/core/strategy.py`.
 
@@ -153,13 +149,13 @@ A Inteligência Artificial, especificamente o algoritmo **K-means**, é o cerne 
 
 Para promover a extensibilidade e a manutenibilidade, a lógica de análise de preços é implementada utilizando o **Padrão Strategy**. A classe `PriceAnalysisStrategy` define uma interface abstrata, e a `KMeansStrategy` fornece a implementação concreta utilizando o K-means. Isso permite que futuras estratégias de análise (e.g., baseadas em outros algoritmos de IA ou regras de negócio) possam ser facilmente adicionadas ou substituídas sem alterar o código principal da aplicação.
 
-## 9. Exemplos de Uso da Aplicação
+## Exemplos de Uso da Aplicação
 
 1.  **Buscar um Jogo Específico:** O usuário digita o nome de um jogo (ex: "Stardew Valley") na barra de busca na página inicial.
 2.  **Visualizar Análise de Preços:** A página de resultados exibe as ofertas disponíveis em diferentes lojas, juntamente com o "Termômetro de Oferta" indicando se o preço é "Quente", "Morno" ou "Frio".
 3.  **Identificar Melhores Ofertas:** O usuário pode rapidamente identificar onde o jogo está com o melhor preço e se a oferta atual é realmente vantajosa, com base na análise da IA.
 
-## 10. Limitações Atuais do MVP
+## Limitações Atuais do MVP
 
 *   **Dados Históricos:** Para o MVP, o gráfico de histórico de preços pode utilizar dados simulados ou uma janela de tempo limitada, não refletindo um histórico completo de longo prazo.
 *   **Escopo da CheapShark API:** A análise está limitada aos jogos e lojas cobertos pela CheapShark API.
@@ -168,7 +164,7 @@ Para promover a extensibilidade e a manutenibilidade, a lógica de análise de p
 *   **Autenticação/Usuários:** Não há sistema de autenticação de usuários ou funcionalidades personalizadas (e.g., lista de desejos, alertas de preço).
 *   **Cobertura de Lojas:** A comparação de preços pode não incluir todas as lojas digitais ou físicas existentes, focando nas principais fontes de dados da CheapShark.
 
-## 11. Possíveis Evoluções Futuras
+## Possíveis Evoluções Futuras
 
 *   **Personalização:** Implementação de perfis de usuário, listas de desejos e alertas de preço personalizados com base nas preferências do usuário.
 *   **IA Avançada:** Exploração de modelos de IA mais sofisticados para análise de preços, como redes neurais ou modelos de séries temporais, para prever tendências de preços e identificar oportunidades com maior precisão.
